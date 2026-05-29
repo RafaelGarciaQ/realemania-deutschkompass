@@ -1,11 +1,53 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<BaseLayout
+  title="Realemania DeutschKompass"
+  description="Gramática alemana, ejercicios y práctica guiada para hispanohablantes."
+>
+  <p>Realemania DeutschKompass</p>
+
+  <h1>Más estructura, menos frustración.</h1>
+
+  <p class="subtitle">
+    Gramática alemana, ejercicios y práctica guiada para hispanohablantes.
+  </p>
+
+  <p>
+    DeutschKompass es la plataforma educativa de Realemania para aprender alemán
+    paso a paso, con explicaciones claras, ejemplos y ejercicios pensados para
+    personas que estudian desde el español.
+  </p>
+
+  <h2>Empieza por nivel</h2>
+
+  <div class="card-list">
+    <section class="card">
+      <h3>A1: Bases del alemán</h3>
+      <p>
+        Aprende pronombres, verbos básicos, artículos, preguntas, negación,
+        preposiciones y orden de la oración.
+      </p>
+      <a href="/a1/">Empezar A1 →</a>
+    </section>
+
+    <section class="card">
+      <h3>A2: Comunicación cotidiana</h3>
+      <p>
+        Amplía tus estructuras para hablar de rutinas, experiencias, planes,
+        necesidades y situaciones del día a día.
+      </p>
+      <a href="/ruta/">Ver ruta A1-C1 →</a>
+    </section>
+
+    <section class="card">
+      <h3>B1-B2-C1: Próximamente</h3>
+      <p>
+        Más adelante encontrarás rutas para expresarte con mayor precisión,
+        escribir mejor y usar estructuras avanzadas.
+      </p>
+      <a href="/ruta/">Ver ruta completa →</a>
+    </section>
+  </div>
+</BaseLayout>

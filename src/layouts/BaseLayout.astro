@@ -1,0 +1,62 @@
+---
+import "../styles/global.css";
+
+const {
+  title = "Realemania DeutschKompass",
+  description = "Gramática alemana, ejercicios y práctica guiada para hispanohablantes.",
+} = Astro.props;
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <script is:inline>
+      const savedTheme = localStorage.getItem("theme");
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+      if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+        document.documentElement.classList.add("dark");
+      }
+    </script>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="logo" href="/">Realemania DeutschKompass</a>
+
+        <nav class="main-nav">
+          <a href="/">Inicio</a>
+          <a href="/sobre-mi/">Sobre mí</a>
+          <a href="/ruta/">Ruta A1-C1</a>
+          <a href="/recursos/">Recursos</a>
+          <a href="/asesorias/">Asesorías</a>
+          <a href="/contacto/">Contacto</a>
+
+          <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema">
+            ☀️ / 🌙
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <script is:inline>
+      const button = document.getElementById("theme-toggle");
+
+      button?.addEventListener("click", () => {
+        document.documentElement.classList.toggle("dark");
+
+        const isDark = document.documentElement.classList.contains("dark");
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+      });
+    </script>
+  </body>
+</html>
