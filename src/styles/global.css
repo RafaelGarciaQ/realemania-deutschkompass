@@ -213,3 +213,44 @@ li {
     grid-column: 2;
   }
 }
+
+.exercise-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.exercise-progress {
+  color: var(--secondary);
+  font-size: 0.95rem;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--card);
+}
+
+.check-all-button {
+  border: 1px solid var(--border);
+  background: var(--text);
+  color: var(--bg);
+  border-radius: 8px;
+  padding: 0.55rem 1rem;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+}
+
+.check-all-button:hover {
+  opacity: 0.85;
+}
+
+@media (max-width: 650px) {
+  .exercise-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

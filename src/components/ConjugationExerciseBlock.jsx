@@ -11,6 +11,10 @@ export default function ConjugationExerciseBlock({ exercises }) {
   const [answers, setAnswers] = useState({});
   const [results, setResults] = useState({});
 
+  const answeredCount = Object.values(answers).filter(
+    (answer) => answer.trim() !== ""
+  ).length;
+
   function updateAnswer(id, value) {
     setAnswers({
       ...answers,
@@ -83,9 +87,15 @@ export default function ConjugationExerciseBlock({ exercises }) {
         ))}
       </div>
 
-      <button className="check-all-button" onClick={checkAllAnswers}>
-        Antworten prüfen
-      </button>
+      <div className="exercise-actions">
+  <span className="exercise-progress">
+    {answeredCount} / {exercises.length} beantwortet
+  </span>
+
+  <button className="check-all-button" onClick={checkAllAnswers}>
+    Antworten prüfen
+  </button>
+</div>
     </section>
   );
 }
