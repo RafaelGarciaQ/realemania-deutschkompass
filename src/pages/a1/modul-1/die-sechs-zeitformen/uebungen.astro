@@ -1,0 +1,20 @@
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+import ConjugationExerciseBlock from "../../../../components/ConjugationExerciseBlock.jsx";
+import exercises from "../../../../content/exercises/a1/modul-1/die-sechs-zeitformen/praesens-konjugation.json";
+---
+
+<BaseLayout
+  title="Übungen zum Präsens | Realemania DeutschKompass"
+  description="Ejercicios de conjugación en Präsens para practicar alemán."
+>
+  <a href="/a1/modul-1/die-sechs-zeitformen/">← Zurück zur Lektion</a>
+
+  <h1>Übungen: Präsens</h1>
+
+  <p class="subtitle">
+    Konjugiere das Verb im Präsens und ergänze die Lücke.
+  </p>
+
+  <ConjugationExerciseBlock client:load exercises={exercises} />
+</BaseLayout>

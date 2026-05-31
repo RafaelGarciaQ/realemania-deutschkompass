@@ -18,14 +18,24 @@ export default function ConjugationExerciseBlock({ exercises }) {
     });
   }
 
-  function checkAnswer(exercise) {
-    const userAnswer = normalizeAnswer(answers[exercise.id] || "");
-    const correctAnswer = normalizeAnswer(exercise.answer);
+  function checkAllAnswers() {
+    const newResults = {};
 
-    setResults({
-      ...results,
-      [exercise.id]: userAnswer === correctAnswer,
+    exercises.forEach((exercise) => {
+      const rawAnswer = answers[exercise.id] || "";
+
+      // No corregimos ejercicios vacíos
+      if (rawAnswer.trim() === "") {
+        return;
+      }
+
+      const userAnswer = normalizeAnswer(rawAnswer);
+      const correctAnswer = normalizeAnswer(exercise.answer);
+
+      newResults[exercise.id] = userAnswer === correctAnswer;
     });
+
+    setResults(newResults);
   }
 
   function renderSentenceWithInput(exercise) {
@@ -48,12 +58,6 @@ export default function ConjugationExerciseBlock({ exercises }) {
 
   return (
     <section className="exercise-section">
-      <h2>Übungen: Präsens</h2>
-
-      <p>
-        Konjugiere das Verb im Präsens und ergänze die Lücke.
-      </p>
-
       <div className="exercise-list">
         {exercises.map((exercise, index) => (
           <div className="exercise-row" key={exercise.id}>
@@ -67,13 +71,6 @@ export default function ConjugationExerciseBlock({ exercises }) {
               {exercise.verb} — {exercise.translation}
             </span>
 
-            <button
-              className="exercise-button"
-              onClick={() => checkAnswer(exercise)}
-            >
-              Prüfen
-            </button>
-
             <span className="exercise-result">
               {results[exercise.id] === true && "✅"}
               {results[exercise.id] === false && (
@@ -85,6 +82,10 @@ export default function ConjugationExerciseBlock({ exercises }) {
           </div>
         ))}
       </div>
+
+      <button className="check-all-button" onClick={checkAllAnswers}>
+        Antworten prüfen
+      </button>
     </section>
   );
 }
