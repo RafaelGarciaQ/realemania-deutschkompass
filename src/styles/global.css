@@ -79,7 +79,7 @@ a:hover {
 }
 
 main {
-  max-width: 760px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 3rem 1.5rem;
 }
@@ -134,4 +134,9 @@ li {
   h1 {
     font-size: 2rem;
   }
+}
+.example-lines {
+  white-space: pre-line;
+  line-height: 1.7;
+  margin: 1rem 0 2rem;
 }
