@@ -1,0 +1,13 @@
+[
+  {
+    "id": "praesens-001",
+    "section": "Präsens",
+    "type": "fill-conjugation",
+    "instruction": "Konjugiere das Verb im Präsens und ergänze die Lücke.",
+    "sentence": "Wer ____ diesen Text ins Deutsche?",
+    "verb": "übersetzen",
+    "translation": "traducir",
+    "answer": "übersetzt",
+    "fullSentence": "Wer übersetzt diesen Text ins Deutsche?"
+  }
+]
