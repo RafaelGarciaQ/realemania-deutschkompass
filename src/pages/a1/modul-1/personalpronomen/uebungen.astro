@@ -1,0 +1,20 @@
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+import FillBlankExerciseBlock from "../../../../components/FillBlankExerciseBlock.jsx";
+import exercises from "../../../../content/exercises/a1/modul-1/personalpronomen/personalpronomen.json";
+---
+
+<BaseLayout
+  title="Übungen zu den Personalpronomen | Realemania DeutschKompass"
+  description="Ejercicios de pronombres personales en alemán para practicar Nominativ, Akkusativ y Dativ."
+>
+  <a href="/a1/modul-1/personalpronomen/">← Zurück zur Lektion</a>
+
+  <h1>Übungen: Personalpronomen</h1>
+
+  <p class="subtitle">
+    Dekliniere das Personalpronomen und ergänze die Lücke.
+  </p>
+
+  <FillBlankExerciseBlock client:load exercises={exercises} />
+</BaseLayout>
