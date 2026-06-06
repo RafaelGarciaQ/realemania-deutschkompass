@@ -287,3 +287,13 @@ li {
 .pronomen-table tr:last-child td {
   border-bottom: none;
 }
+
+.lesson-links {
+  display: grid;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.lesson-links a {
+  display: inline-block;
+}
